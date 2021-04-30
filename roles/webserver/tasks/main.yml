@@ -1,0 +1,25 @@
+---
+# tasks file for webserver
+
+- name: httpd install
+  package:
+     name: httpd
+ 
+- name: install php
+  package:
+     name: php
+
+- name: copy content
+  copy:
+     src:  index.php
+     dest: /var/www/html 
+
+- name: starting the service of httpd
+  service: 
+     name: "httpd"
+     state: started
+
+
+
+
+  

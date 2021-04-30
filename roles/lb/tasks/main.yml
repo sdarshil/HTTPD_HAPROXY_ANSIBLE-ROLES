@@ -1,0 +1,18 @@
+---
+# tasks file for lb
+
+- name: haproxyinstall
+  package:
+     name: haproxy
+
+- name: copy content
+  template:
+     src: haproxy.cfg	
+     dest: /etc/haproxy/haproxy.cfg
+
+- name: starting the service of httpd
+  service: 
+     name: "haproxy"
+     state: restarted
+
+  
